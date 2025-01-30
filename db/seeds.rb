@@ -15,14 +15,14 @@ garden_names = [
 
 garden_names.each do |garden_name|
   puts "Creating #{garden_name}..."
-  garden_request = RestClient.get("https://source.unsplash.com/1200x700/?garden")
+  garden_request = RestClient.get("https://images.pexels.com/photos/158028/bellingrath-gardens-alabama-landscape-scenic-158028.jpeg")
   garden = Garden.new(
       name: garden_name,
       banner_url: garden_request.request.url
     )
   garden.save!
   3.times do
-    plant_request = RestClient.get("https://source.unsplash.com/400x300/?flower")
+    plant_request = RestClient.get("https://images.pexels.com/photos/298246/pexels-photo-298246.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
     plant = Plant.new(
       name: Faker::FunnyName.name,
       image_url: plant_request.request.url

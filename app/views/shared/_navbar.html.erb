@@ -6,16 +6,11 @@
   <% end %>
 
   <% if user_signed_in? %>
-    <div class="ml-auto">
-      <%= link_to new_garden_path, class: "navbar-brand padding-sign_up" do %>
-        Add a garden
-      <% end %>
-      <%= link_to edit_user_registration_path, class: "navbar-brand padding-sign_up" do %>
-        Edit profile
-      <% end %>
-      <%= link_to destroy_user_session_path, method: :delete, class: "navbar-brand padding-sign_up" do %>
-        Sign Out
-      <% end %>
+    <div class="ml-auto d-flex">
+     <%= button_to "Add a garden", new_garden_path, method: :get, class: "btn btn-outline-primary navbar-brand padding-sign_up" %>
+<%= button_to "Edit profile", edit_user_registration_path, method: :get, class: "btn btn-outline-secondary navbar-brand padding-sign_up" %>
+<%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger navbar-brand padding-sign_up" %>
+
     </div>
 
   <% else %>
